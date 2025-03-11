@@ -1,6 +1,11 @@
 #!/bin/bash
 # This script starts Jupyter Lab in the development container
 
+# Ensure we're using the virtualenv
+if [ -f /app/.venv/bin/activate ]; then
+    source /app/.venv/bin/activate
+fi
+
 # Create a Jupyter config if it doesn't exist
 jupyter lab --generate-config
 

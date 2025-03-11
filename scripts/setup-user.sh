@@ -46,6 +46,12 @@ cat >> ~/.bashrc << EOF
 # Python configuration
 export PYTHONSTARTUP=~/.pyrc
 export PYTHONPATH=\$PYTHONPATH:/app
+export PATH="/app/.venv/bin:\$PATH"
+
+# Activate virtual environment if it exists
+if [ -f /app/.venv/bin/activate ]; then
+    source /app/.venv/bin/activate
+fi
 
 # Aliases
 alias ll='ls -la'

@@ -5,13 +5,11 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1 \
     POETRY_VERSION=1.7.1 \
     POETRY_HOME="/opt/poetry" \
-    POETRY_VIRTUALENVS_IN_PROJECT=false \
+    POETRY_VIRTUALENVS_IN_PROJECT=true \
     POETRY_NO_INTERACTION=1 \
-    PYSETUP_PATH="/opt/pysetup" \
-    VENV_PATH="/opt/pysetup/.venv" \
     DEBIAN_FRONTEND=noninteractive
 
-ENV PATH="$POETRY_HOME/bin:$VENV_PATH/bin:$PATH"
+ENV PATH="$POETRY_HOME/bin:/app/.venv/bin:$PATH"
 
 # Install system dependencies
 RUN apt-get update && apt-get install -y --no-install-recommends \
@@ -70,8 +68,9 @@ RUN chmod +x /app/init-jupyter.sh /app/scripts/entrypoint.sh
 # Switch to non-root user for installation
 USER developer
 
-# Configure Poetry and install dependencies
-RUN poetry config virtualenvs.create false \
+# Configure Poetry with virtualenvs and install dependencies
+RUN poetry config virtualenvs.create true \
+    && poetry config virtualenvs.in-project true \
     && poetry install --no-interaction --no-ansi --no-root
 
 # Switch back to root for entrypoint
