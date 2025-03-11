@@ -1,0 +1,45 @@
+version: '3.8'
+
+services:
+  dev:
+    # Uncomment and modify these environment variables as needed
+    environment:
+      # - ADDITIONAL_ENV_VAR=value
+      # - JUPYTER_TOKEN=your_secure_token_here  # Set a specific Jupyter token
+      # - TZ=UTC  # Set timezone
+    
+    # Uncomment to mount additional volumes
+    # volumes:
+    #   - ./data:/app/data
+    #   - ~/.aws:/home/developer/.aws:ro  # AWS credentials
+    
+    # Uncomment to expose additional ports
+    # ports:
+    #   - "8080:8080"  # For web applications
+    
+    # Uncomment to add custom container commands
+    # command: /bin/bash -c "cd /app && ./init-jupyter.sh"
+
+  db:
+    # Uncomment to modify database settings
+    # environment:
+    #   - POSTGRES_PASSWORD=your_secure_password_here
+    
+    # Uncomment to customize PostgreSQL configuration
+    # command: 
+    #   - "postgres"
+    #   - "-c"
+    #   - "max_connections=200"
+    #   - "-c"
+    #   - "shared_buffers=2GB"
+    
+    # Uncomment to persist database in a named volume
+    # volumes:
+    #   - postgres_data:/var/lib/postgresql/data
+    #   - ./init-db:/docker-entrypoint-initdb.d  # For initialization scripts
+
+  pgadmin:
+    # Uncomment to modify pgAdmin settings
+    # environment:
+    #   - PGADMIN_DEFAULT_EMAIL=your_email@example.com
+    #   - PGADMIN_DEFAULT_PASSWORD=your_secure_password_here
