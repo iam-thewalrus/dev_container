@@ -33,15 +33,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
-# Install TA-Lib dependencies
-RUN wget http://prdownloads.sourceforge.net/ta-lib/ta-lib-0.4.0-src.tar.gz && \
-    tar -xvzf ta-lib-0.4.0-src.tar.gz && \
-    cd ta-lib/ && \
-    ./configure --prefix=/usr && \
-    make && \
-    make install && \
-    cd .. && \
-    rm -rf ta-lib ta-lib-0.4.0-src.tar.gz
+# We'll use pandas-ta instead of TA-Lib to avoid build issues
+# The required technical analysis functionality is available in pandas-ta
 
 # Configure SSH server
 RUN mkdir -p /var/run/sshd \
