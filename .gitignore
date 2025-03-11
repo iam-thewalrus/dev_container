@@ -82,3 +82,7 @@ data/
 # Credentials
 *.pem
 *.key
+
+# MacOS
+.DS_Store
+
