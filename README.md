@@ -99,7 +99,7 @@ The environment comes with a comprehensive set of data science and financial ana
 - **Data Processing**: pandas, numpy
 - **Visualization**: matplotlib, seaborn, plotly, dash
 - **Machine Learning**: scikit-learn, statsmodels, prophet
-- **Time Series**: pandas-ta, timescale-vector (Note: Using pandas-ta instead of ta-lib due to build compatibility)
+- **Time Series**: pandas-ta (Note: Using pandas-ta for technical analysis)
 - **API Integration**: requests, httpx, aiohttp, websockets, ccxt
 - **Development Tools**: pytest, black, isort, mypy, pylint
 
